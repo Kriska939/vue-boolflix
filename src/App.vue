@@ -32,6 +32,7 @@ export default {
   methods: {
     getDataQuery(data) {
       this.query = data;
+      this.getMovies();
     },
 
     getMovies() {
