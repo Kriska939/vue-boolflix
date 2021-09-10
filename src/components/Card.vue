@@ -1,9 +1,9 @@
 <template>
   <div>
-    <h4>{{ movie.title }}</h4>
-    <h4>{{ movie.original_title }}</h4>
-    <p>{{ movie.original_language }}</p>
-    <p>{{ movie.vote_average }}</p>
+    <h4>Titolo: {{ movie.title }}</h4>
+    <h4>Titolo originale: {{ movie.original_title }}</h4>
+    <p>Lingua:{{ movie.original_language }}</p>
+    <p>Rating:{{ movie.vote_average }}</p>
   </div>
 </template>
 
@@ -15,4 +15,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
+div {
+  background-color: lightblue;
+  margin: 0 20px;
+}
 </style>

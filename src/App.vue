@@ -6,8 +6,10 @@
     </header>
     <main>
       <h2>Movies</h2>
-      <div class="movieList" v-for="movie in searchedMovies" :key="movie.id">
-        <Card :movie="searchedMovies" />
+      <div class="flex-container">
+        <div class="movieList" v-for="movie in searchedMovies" :key="movie.id">
+          <Card :movie="movie" />
+        </div>
       </div>
     </main>
   </div>
@@ -36,13 +38,18 @@ export default {
     },
 
     getMovies() {
-      axios.get(
-        `https://api.themoviedb.org/3/search/movie?api_key=bd55e90766b8791db24043f70a9dd910&language=it_IT&query=${this.query}`.then(
-          (r) => {
-            this.searchedMovies = r.data.results;
-          }
-        )
-      );
+      const params = {
+        params: {
+          language: "it_IT",
+          api_key: "bd55e90766b8791db24043f70a9dd910",
+          query: this.query,
+        },
+      };
+      axios
+        .get("https://api.themoviedb.org/3/search/movie", params)
+        .then((r) => {
+          this.searchedMovies = r.data.results;
+        });
     },
   },
 };
@@ -57,5 +64,10 @@ header {
 h1 {
   margin: 0;
   line-height: 80px;
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
 }
 </style>
