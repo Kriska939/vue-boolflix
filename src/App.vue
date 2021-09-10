@@ -4,16 +4,23 @@
       <h1>Boolflix</h1>
       <SearchBar />
     </header>
-    <main></main>
+    <main>
+      <h2>Movies</h2>
+      <div class="movieList">
+        <Card />
+      </div>
+    </main>
   </div>
 </template>
 
 <script>
 import SearchBar from "./components/SearchBar.vue";
+import Card from "./components/Card.vue";
 export default {
   name: "App",
   components: {
     SearchBar,
+    Card,
   },
 };
 </script>
