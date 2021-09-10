@@ -1,13 +1,28 @@
 <template>
   <div class="search-container">
-    <input type="text" placeholder="Search.." name="search" />
-    <button type="submit">Search</button>
+    <input
+      type="text"
+      placeholder="Search.."
+      name="search"
+      v-model.trim="queryText"
+    />
+    <button @click="sendQuery">Search</button>
   </div>
 </template>
 
 <script>
 export default {
   name: "searchBar",
+  data() {
+    return {
+      queryText: "",
+    };
+  },
+  methods: {
+    sendQuery() {
+      this.$emit("dataQuery", this.queryText);
+    },
+  },
 };
 </script>
 
