@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h4>Titolo: {{ item.title }}</h4>
-    <h4>Titolo originale: {{ item.original_title }}</h4>
+    <h4>Titolo: {{ item.title || item.name }}</h4>
+    <h4>Titolo originale: {{ item.original_title || item.original_name }}</h4>
     <p>
       Lingua:
       <span v-if="selectFlag(item.original_language)">
