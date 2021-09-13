@@ -39,10 +39,10 @@ export default {
     };
   },
   methods: {
-    getDataQuery(data) {
-      this.query = data;
+    getDataQuery(query) {
+      this.query = query;
 
-      if (!this.query) this.searchedMovies = this.searchedSeries = [];
+      if (!query) this.searchedMovies = this.searchedSeries = [];
 
       this.getResults();
     },
@@ -60,6 +60,10 @@ export default {
         .then((r) => {
           this.searchedMovies = r.data.results;
         });
+
+      axios.get("https://api.themoviedb.org/3/search/tv", params).then((r) => {
+        this.searchedSeries = r.data.results;
+      });
     },
   },
 };
