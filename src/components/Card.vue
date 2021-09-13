@@ -18,7 +18,7 @@
           {{ item.original_language }}
         </span>
       </p>
-      <p>Rating:{{ item.vote_average }}</p>
+      <p>Rating: {{ getRating(item.vote_average) + "/5" }}</p>
     </div>
   </div>
 </template>
@@ -45,6 +45,10 @@ export default {
       } else {
         return `https://www.altavod.com/assets/images/poster-placeholder.png`;
       }
+    },
+
+    getRating(rating) {
+      return Math.ceil(rating % 2);
     },
   },
 };
