@@ -7,8 +7,14 @@
     <main>
       <h2>Movies</h2>
       <div class="flex-container">
-        <div class="movieList" v-for="movie in searchedMovies" :key="movie.id">
-          <Card :movie="movie" />
+        <div class="movieList" v-for="item in searchedMovies" :key="item.id">
+          <Card :item="item" />
+        </div>
+      </div>
+      <h2>Series</h2>
+      <div class="flex-container">
+        <div class="seriesList" v-for="item in searchedSeries" :key="item.id">
+          <Card :item="item" />
         </div>
       </div>
     </main>
@@ -29,15 +35,19 @@ export default {
     return {
       query: "",
       searchedMovies: [],
+      searchedSeries: [],
     };
   },
   methods: {
     getDataQuery(data) {
       this.query = data;
-      this.getMovies();
+
+      if (!this.query) this.searchedMovies = this.searchedSeries = [];
+
+      this.getResults();
     },
 
-    getMovies() {
+    getResults() {
       const params = {
         params: {
           language: "it_IT",

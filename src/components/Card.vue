@@ -1,27 +1,27 @@
 <template>
   <div>
-    <h4>Titolo: {{ movie.title }}</h4>
-    <h4>Titolo originale: {{ movie.original_title }}</h4>
+    <h4>Titolo: {{ item.title }}</h4>
+    <h4>Titolo originale: {{ item.original_title }}</h4>
     <p>
       Lingua:
-      <span v-if="selectFlag(movie.original_language)">
+      <span v-if="selectFlag(item.original_language)">
         <img
           class="img-resize"
-          :src="selectFlag(movie.original_language)"
-          :alt="movie.original_language"
+          :src="selectFlag(item.original_language)"
+          :alt="item.original_language"
       /></span>
       <span v-else>
-        {{ movie.original_language }}
+        {{ item.original_language }}
       </span>
     </p>
-    <p>Rating:{{ movie.vote_average }}</p>
+    <p>Rating:{{ item.vote_average }}</p>
   </div>
 </template>
 
 <script>
 export default {
   name: "Card",
-  props: ["movie"],
+  props: ["item"],
 
   methods: {
     selectFlag(lang) {
