@@ -4,7 +4,7 @@
       <h1 class="c-red ms-3">Boolflix</h1>
       <SearchBar @dataQuery="getDataQuery" class="me-3" />
     </header>
-    <main class="bg-grey">
+    <main>
       <section class="container">
         <h2 class="c-red">Movies</h2>
         <div class="row d-flex">
@@ -82,12 +82,9 @@ export default {
 </script>
 
 <style lang="scss">
+@import "@/assets/scss/_style.scss";
 .bg-black {
   background-color: black;
-}
-
-.bg-grey {
-  background-color: #3c3c3c;
 }
 
 .c-red {
