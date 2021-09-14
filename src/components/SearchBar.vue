@@ -1,12 +1,19 @@
 <template>
   <div class="search-container">
-    <input
-      type="text"
-      placeholder="Search.."
-      name="search"
-      v-model.trim="queryText"
-    />
-    <button @click="sendQuery">Search</button>
+    <div class="input-group">
+      <div class="form-outline">
+        <input
+          type="text"
+          id="form1"
+          class="form-control"
+          placeholder="Search.."
+          v-model.trim="queryText"
+        />
+      </div>
+      <button type="button" class="btn bg-red" @click="sendQuery">
+        <i class="fas fa-search"></i>
+      </button>
+    </div>
   </div>
 </template>
 
@@ -27,8 +34,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.search-container {
-  line-height: 80px;
-  margin-left: 10px;
+.bg-red {
+  background-color: #e50914;
 }
 </style>
