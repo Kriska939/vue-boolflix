@@ -83,6 +83,7 @@ export default {
 
 <style lang="scss">
 @import "@/assets/scss/_style.scss";
+
 .bg-black {
   background-color: black;
 }
