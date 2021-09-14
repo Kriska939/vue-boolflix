@@ -4,19 +4,27 @@
       <h1 class="c-red ms-3">Boolflix</h1>
       <SearchBar @dataQuery="getDataQuery" class="me-3" />
     </header>
-    <main>
+    <main class="bg-grey">
       <section class="container">
-        <h2>Movies</h2>
-        <div class="d-flex">
-          <div class="movieList" v-for="item in searchedMovies" :key="item.id">
+        <h2 class="c-red">Movies</h2>
+        <div class="row d-flex">
+          <div
+            class="col col-lg-3 col-md-4 col-sm-6 mb-5 movieList"
+            v-for="item in searchedMovies"
+            :key="item.id"
+          >
             <Card :item="item" />
           </div>
         </div>
       </section>
       <section class="container">
-        <h2>Series</h2>
-        <div class="d-flex">
-          <div class="seriesList" v-for="item in searchedSeries" :key="item.id">
+        <h2 class="c-red">Series</h2>
+        <div class="row d-flex">
+          <div
+            class="col col col-lg-3 col-md-4 col-sm-6 mb-5 seriesList"
+            v-for="item in searchedSeries"
+            :key="item.id"
+          >
             <Card :item="item" />
           </div>
         </div>
@@ -78,11 +86,19 @@ export default {
   background-color: black;
 }
 
+.bg-grey {
+  background-color: #3c3c3c;
+}
+
 .c-red {
   color: #e50914;
 }
 h1 {
   margin: 0;
   line-height: 80px;
+}
+
+h2 {
+  padding: 40px 0;
 }
 </style>

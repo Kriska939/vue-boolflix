@@ -1,11 +1,15 @@
 <template>
-  <div>
-    <div class="poster">
-      <img :src="getPoster(item.poster_path)" alt="Poster" />
-    </div>
-    <div class="content">
-      <h4>Titolo: {{ item.title || item.name }}</h4>
-      <h4>Titolo originale: {{ item.original_title || item.original_name }}</h4>
+  <div class="mb-3" id="card">
+    <img
+      :src="getPoster(item.poster_path)"
+      alt="Poster"
+      class="img-fluid poster"
+    />
+    <div id="content" class="text-center pt-5">
+      <p class="mb-0">Titolo:</p>
+      <h5 class="d-inline">{{ item.title || item.name }}</h5>
+      <p class="mb-0">Titolo Originale:</p>
+      <h5 class="d-inline">{{ item.original_title || item.original_name }}</h5>
       <p>
         Lingua:
         <span v-if="selectFlag(item.original_language)">
@@ -18,7 +22,7 @@
           {{ item.original_language }}
         </span>
       </p>
-      <p>Rating: {{ rating + "/5" }}</p>
+      <p class="mb-0">Rating: {{ rating + "/5" }}</p>
       <span>
         <i
           v-for="n in 5"
@@ -65,13 +69,34 @@ export default {
 </script>
 
 <style scoped lang="scss">
-div {
-  background-color: lightblue;
-  margin: 0 20px;
+.img-resize {
+  width: 45px;
+  height: 25px;
 }
 
-.img-resize {
-  max-width: 50px;
-  max-height: 40px;
+#card {
+  height: 350px;
+  padding-bottom: 30px;
+}
+
+#card .poster {
+  height: 350px;
+}
+
+#content {
+  visibility: hidden;
+  height: 0;
+}
+
+#card:hover {
+  #content {
+    visibility: visible;
+    height: 100%;
+    color: white;
+  }
+
+  .poster {
+    display: none;
+  }
 }
 </style>
