@@ -18,7 +18,15 @@
           {{ item.original_language }}
         </span>
       </p>
-      <p>Rating: {{ getRating(item.vote_average) + "/5" }}</p>
+      <p>Rating: {{ rating + "/5" }}</p>
+      <span>
+        <i
+          v-for="n in 5"
+          :key="n"
+          :class="n <= rating ? 'fas' : 'far'"
+          class="fa-star"
+        ></i>
+      </span>
     </div>
   </div>
 </template>
@@ -27,6 +35,12 @@
 export default {
   name: "Card",
   props: ["item"],
+
+  computed: {
+    rating() {
+      return Math.ceil(this.item.vote_average / 2);
+    },
+  },
 
   methods: {
     selectFlag(lang) {
@@ -45,10 +59,6 @@ export default {
       } else {
         return `https://www.altavod.com/assets/images/poster-placeholder.png`;
       }
-    },
-
-    getRating(rating) {
-      return Math.ceil(rating % 2);
     },
   },
 };
